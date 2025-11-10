@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armoni Dental Studio - Odontología Especializada en Santo Domingo</title>
+    <meta name="description" content="Odontología especializada con tecnología de vanguardia. Transformamos sonrisas, cambiamos vidas. Dra. Laura Vásquez - Ortodoncia y Ortopedia Maxilar">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ===== VARIABLES Y RESET ===== */
+        :root {
+            --primary: #8a4d5d;
+            --primary-dark: #6d3c4a;
+            --secondary: #2D3748;
+            --accent: #F6AD55;
+            --white: #FFFFFF;
+            --light-gray: #f0e6dd;
+            --medium-gray: #EDF2F7;
+            --dark-gray: #4A5568;
+            --text: #2D3748;
+            --text-light: #718096;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6, .btn, .cta {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        section {
+            padding: 5rem 1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(138, 77, 93, 0.3);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #1A202C;
+            transform: translateY(-3px);
+        }
+        
+        .btn-accent {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .btn-accent:hover {
+            background: #ED8936;
+            transform: translateY(-3px);
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+        }
+        
+        /* ===== HEADER ===== */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 2rem;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            cursor: pointer;
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.postimg.cc/QMFFbYrp/Simpaticnyj-molodoj-malcik-posesaet-stomatologa-i-proveraet-zuby-u-stomatologa-v-stomatologiceskom.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -2;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-5px) translateX(-50%);
+            }
+        }
+        
+        /* ===== FLOATING WHATSAPP BUTTON ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+            text-decoration: none;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        /* ===== ABOUT DOCTOR SECTION ===== */
+        .doctor {
+            background: linear-gradient(135deg, var(--light-gray) 0%, white 100%);
+        }
+        
+        .doctor-container {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+        
+        .doctor-image {
+            flex: 0 0 40%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .doctor-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .doctor-content {
+            flex: 1;
+        }
+        
+        .doctor-subtitle {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: var(--primary);
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .doctor-name {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .doctor-specialty {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .doctor-subspecialty {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+        
+        .doctor-bio {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        
+        .doctor-contact {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        /* ===== SERVICES SECTION ===== */
+        .services {
+            background: var(--light-gray);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card.highlight {
+            border: 2px solid var(--primary);
+            position: relative;
+        }
+        
+        .service-card.highlight::before {
+            content: "⭐ Especialidad";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+        
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            background: var(--white);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .contact-form {
+            background: var(--light-gray);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #E2E8F0;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            transition: border 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .contact-card {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-card h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        
+        .contact-method:hover {
+            background: rgba(255, 255, 255, 0.7);
+        }
+        
+        .contact-method i {
+            font-size: 1.2rem;
+            color: var(--primary);
+            width: 30px;
+        }
+        
+        /* ===== SOCIAL SECTION ===== */
+        .social {
+            background: var(--light-gray);
+            text-align: center;
+        }
+        
+        .social-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .social h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .social p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        
+        /* ===== LOCATION SECTION ===== */
+        .location {
+            background: var(--white);
+        }
+        
+        .location-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .schedule, .location-info {
+            background: var(--light-gray);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .schedule h3, .location-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .schedule-list {
+            list-style: none;
+        }
+        
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+        
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+        
+        .map {
+            height: 300px;
+            background: var(--medium-gray);
+            border-radius: 10px;
+            margin-top: 1.5rem;
+            overflow: hidden;
+        }
+        
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--secondary);
+            color: white;
+            padding: 4rem 1rem 2rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+        }
+        
+        .footer-logo h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-logo p {
+            color: #A0AEC0;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #A0AEC0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-contact {
+            list-style: none;
+        }
+        
+        .footer-contact li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+        
+        .footer-contact i {
+            color: var(--primary);
+            margin-top: 3px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link-footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link-footer:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #4A5568;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: #A0AEC0;
+            font-size: 0.9rem;
+        }
+        
+        /* ===== RESPONSIVE STYLES ===== */
+        @media (max-width: 992px) {
+            .doctor-container {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .doctor-image {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .contact-container, .location-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                flex-direction: column;
+                background: white;
+                width: 80%;
+                height: calc(100vh - 70px);
+                transition: 0.3s;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                padding: 2rem;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-menu li {
+                margin: 1rem 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            section {
+                padding: 3rem 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .doctor-contact {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <img src="https://i.postimg.cc/x1YdDbRC/Whats-App-Image-2025-11-01-at-23-18-31-59aa661b-removebg-preview.png" alt="Armoni Dental Studio">
+                Armoni <span>Dental Studio</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#doctora">Dra. Laura</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#ubicacion">Ubicación</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Odontología Especializada</h1>
+            <p>Transformamos sonrisas, cambiamos vidas. Tecnología de vanguardia en el corazón de Santo Domingo.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/18096107433?source_surface=23" class="btn btn-primary" target="_blank" aria-label="Agendar cita por WhatsApp">
+                    <i class="fab fa-whatsapp"></i> Agendar Cita
+                </a>
+                <a href="#servicios" class="btn btn-secondary">Nuestros Servicios</a>
+            </div>
+        </div>
+        <a href="#doctora" class="scroll-indicator" aria-label="Desplazarse hacia abajo">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/18096107433?source_surface=23" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- About Doctor Section -->
+    <section class="doctor" id="doctora">
+        <div class="container">
+            <div class="doctor-container">
+                <div class="doctor-image">
+                    <!-- Imagen de la Dra. Laura Vásquez -->
+                    <img src="https://i.postimg.cc/MHPSjvB5/Whats-App-Image-2025-11-10-at-12-33-16-11869418.jpg" alt="Dra. Laura Vásquez - Odontóloga Especialista">
+                </div>
+                <div class="doctor-content">
+                    <p class="doctor-subtitle">Conozca a nuestra especialista</p>
+                    <h2 class="doctor-name">DRA. LAURA VÁSQUEZ</h2>
+                    <p class="doctor-specialty">Ortodoncia y Ortopedia Maxilar</p>
+                    <p class="doctor-subspecialty">En formación en Armonización Orofacial</p>
+                    <p class="doctor-bio">"Con estudios en ortodoncia y ortopedia maxilar, actualmente en formación en armonización orofacial. Desde el primer día entendí que la odontología no trata solo de alinear dientes, sino de armonizar sonrisas y transformar vidas. Cada tratamiento que realizo busca equilibrio, estética y funcionalidad, porque creo firmemente que una sonrisa armoniosa refleja bienestar integral. Me apasiona acompañar a mis pacientes en este viaje de transformación, donde la ciencia y la belleza se encuentran."</p>
+                    <div class="doctor-contact">
+                        <a href="mailto:dra.lauravasquez9@gmail.com" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i> Email
+                        </a>
+                        <a href="tel:+18096349719" class="btn btn-secondary">
+                            <i class="fas fa-phone"></i> +1 809-634-9719
+                        </a>
+                        <a href="https://wa.me/18096107433?source_surface=23" class="btn btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Agendar Cita
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Servicios</h2>
+                <p>Soluciones integrales para tu salud dental</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                    <h3>Limpieza</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-teeth"></i>
+                    </div>
+                    <h3>Caries</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-sparkles"></i>
+                    </div>
+                    <h3>Blanqueamiento</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-teeth-open"></i>
+                    </div>
+                    <h3>Prótesis</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                    <h3>Endodoncia</h3>
+                </div>
+                <div class="service-card highlight">
+                    <div class="service-icon">
+                        <i class="fas fa-teeth"></i>
+                    </div>
+                    <h3>Ortodoncia</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <h3>Estética</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3>Odontopediatría</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-syringe"></i>
+                    </div>
+                    <h3>Cirugía</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-implant"></i>
+                    </div>
+                    <h3>Implantes</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contáctanos</h2>
+                <p>Estamos aquí para responder tus preguntas y agendar tu cita</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-form">
+                    <form id="appointment-form">
+                        <div class="form-group">
+                            <label for="name">Nombre completo</label>
+                            <input type="text" id="name" class="form-control" required aria-required="true">
+                            <div class="error-message" id="name-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" class="form-control" required aria-required="true">
+                            <div class="error-message" id="phone-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" aria-required="false">
+                            <div class="error-message" id="email-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Servicio de interés</label>
+                            <select id="service" class="form-control" required aria-required="true">
+                                <option value="">Selecciona un servicio</option>
+                                <option value="limpieza">Limpieza</option>
+                                <option value="caries">Caries</option>
+                                <option value="blanqueamiento">Blanqueamiento</option>
+                                <option value="protesis">Prótesis</option>
+                                <option value="endodoncia">Endodoncia</option>
+                                <option value="ortodoncia">Ortodoncia</option>
+                                <option value="estetica">Estética</option>
+                                <option value="odontopediatria">Odontopediatría</option>
+                                <option value="cirugia">Cirugía</option>
+                                <option value="implantes">Implantes</option>
+                            </select>
+                            <div class="error-message" id="service-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" class="form-control" rows="4" aria-required="false"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Enviar Mensaje</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3>Información de Contacto</h3>
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <i class="fab fa-whatsapp"></i>
+                                <div>
+                                    <strong>WhatsApp</strong>
+                                    <p>+1 809-610-7433</p>
+                                </div>
+                            </div>
+                            <div class="contact-method">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <strong>Teléfono</strong>
+                                    <p>+1 809-634-9719</p>
+                                </div>
+                            </div>
+                            <div class="contact-method">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <strong>Email</strong>
+                                    <p>dra.lauravasquez9@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="contact-method">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Dirección</strong>
+                                    <p>Calle Club Rotario #60, Plaza Valpa Center 2do nivel</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Section -->
+    <section class="social">
+        <div class="container">
+            <div class="social-content">
+                <h2>Síguenos en Instagram</h2>
+                <p>Para más información, contáctanos a nuestras redes sociales: @ArmoniDentalStudio</p>
+                <a href="https://instagram.com/ArmoniDentalStudio" class="social-link" target="_blank" aria-label="Síguenos en Instagram">
+                    <i class="fab fa-instagram"></i> @ArmoniDentalStudio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location" id="ubicacion">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ubicación y Horarios</h2>
+            </div>
+            <div class="location-container">
+                <div class="schedule">
+                    <h3>Horario de Atención</h3>
+                    <ul class="schedule-list">
+                        <li class="schedule-item">
+                            <span>Lunes • Viernes</span>
+                            <span>09:00am • 06:00pm</span>
+                        </li>
+                        <li class="schedule-item">
+                            <span>Sábados</span>
+                            <span>09:00am • 04:00pm</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="location-info">
+                    <h3>Nuestra Ubicación</h3>
+                    <p>Calle Club Rotario #60, Plaza Valpa Center 2do nivel;</p>
+                    <p>Sto. Dgo., República Dominicana.</p>
+                    
+                    <div class="map">
+                        <!-- Mapa de Google Maps -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.249991647822!2d-69.93718492478768!3d18.48326367198386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eaf89f1107ea5ab%3A0xd6c587b82715c164!2sPlaza%20Valpa%20Center!5e0!3m2!1ses!2sdo!4v1710000000000!5m2!1ses!2sdo" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    
+                    <a href="https://goo.gl/maps/example" class="btn btn-primary" target="_blank" style="margin-top: 1.5rem;">
+                        <i class="fas fa-map-marker-alt"></i> Ver en Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column footer-logo">
+                    <h2>Armoni Dental Studio</h2>
+                    <p>Odontología Especializada en Santo Domingo</p>
+                    <div class="social-links">
+                        <a href="https://wa.me/18096107433?source_surface=23" class="social-link-footer" target="_blank" aria-label="Contactar por WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="tel:+18096107433" class="social-link-footer" aria-label="Llamar por teléfono">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        <a href="mailto:dra.lauravasquez9@gmail.com" class="social-link-footer" aria-label="Enviar correo electrónico">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://instagram.com/ArmoniDentalStudio" class="social-link-footer" target="_blank" aria-label="Seguir en Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Servicios</h3>
+                    <ul class="footer-links">
+                        <li><a href="#servicios">Ortodoncia</a></li>
+                        <li><a href="#servicios">Implantes</a></li>
+                        <li><a href="#servicios">Blanqueamiento</a></li>
+                        <li><a href="#servicios">Estética Dental</a></li>
+                        <li><a href="#servicios">Ver Todos →</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#doctora">Dra. Laura</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="#ubicacion">Ubicación</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <strong>WhatsApp</strong>
+                                <p>+1 809-610-7433</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Teléfono</strong>
+                                <p>+1 809-634-9719</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <p>dra.lauravasquez9@gmail.com</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Dirección</strong>
+                                <p>Plaza Valpa Center</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Armoni Dental Studio. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Form Validation
+        document.getElementById('appointment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Reset error messages
+            document.querySelectorAll('.error-message').forEach(el => {
+                el.textContent = '';
+            });
+            
+            let isValid = true;
+            
+            // Name validation
+            const name = document.getElementById('name').value.trim();
+            if (name === '') {
+                document.getElementById('name-error').textContent = 'Por favor, ingresa tu nombre completo';
+                isValid = false;
+            }
+            
+            // Phone validation
+            const phone = document.getElementById('phone').value.trim();
+            const phoneRegex = /^[0-9+\-\s()]{10,}$/;
+            if (phone === '') {
+                document.getElementById('phone-error').textContent = 'Por favor, ingresa tu número de teléfono';
+                isValid = false;
+            } else if (!phoneRegex.test(phone)) {
+                document.getElementById('phone-error').textContent = 'Por favor, ingresa un número de teléfono válido';
+                isValid = false;
+            }
+            
+            // Email validation (optional)
+            const email = document.getElementById('email').value.trim();
+            if (email !== '') {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    document.getElementById('email-error').textContent = 'Por favor, ingresa un email válido';
+                    isValid = false;
+                }
+            }
+            
+            // Service validation
+            const service = document.getElementById('service').value;
+            if (service === '') {
+                document.getElementById('service-error').textContent = 'Por favor, selecciona un servicio de interés';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Simulate form submission
+                alert('¡Gracias por tu mensaje! Te contactaremos pronto para confirmar tu cita.');
+                this.reset();
+            }
+        });
+
+        // Real-time validation
+        document.querySelectorAll('.form-control').forEach(input => {
+            input.addEventListener('blur', function() {
+                const errorId = this.id + '-error';
+                const errorElement = document.getElementById(errorId);
+                
+                if (errorElement) {
+                    if (this.value.trim() === '' && this.hasAttribute('required')) {
+                        errorElement.textContent = 'Este campo es obligatorio';
+                    } else {
+                        errorElement.textContent = '';
+                    }
+                    
+                    // Specific validation for email
+                    if (this.type === 'email' && this.value.trim() !== '') {
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!emailRegex.test(this.value.trim())) {
+                            errorElement.textContent = 'Por favor, ingresa un email válido';
+                        }
+                    }
+                    
+                    // Specific validation for phone
+                    if (this.id === 'phone' && this.value.trim() !== '') {
+                        const phoneRegex = /^[0-9+\-\s()]{10,}$/;
+                        if (!phoneRegex.test(this.value.trim())) {
+                            errorElement.textContent = 'Por favor, ingresa un número de teléfono válido';
+                        }
+                    }
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        const icon = mobileMenuBtn.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
