@@ -17,16 +17,16 @@
     <style>
         /* ===== VARIABLES Y RESET ===== */
         :root {
-            --primary: #8a4d5d;
-            --primary-dark: #6d3c4a;
-            --secondary: #2D3748;
-            --accent: #F6AD55;
+            --primary: #00B4D8;
+            --primary-dark: #0077B6;
+            --secondary: #023E8A;
+            --accent: #FF6B6B;
             --white: #FFFFFF;
-            --light-gray: #f0e6dd;
-            --medium-gray: #EDF2F7;
-            --dark-gray: #4A5568;
-            --text: #2D3748;
-            --text-light: #718096;
+            --light-gray: #E9ECEF;
+            --medium-gray: #DEE2E6;
+            --dark-gray: #495057;
+            --text: #212529;
+            --text-light: #6C757D;
         }
         
         * {
@@ -99,7 +99,7 @@
         .btn-primary:hover {
             background: var(--primary-dark);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(138, 77, 93, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 180, 216, 0.3);
         }
         
         .btn-secondary {
@@ -108,7 +108,7 @@
         }
         
         .btn-secondary:hover {
-            background: #1A202C;
+            background: #022e6b;
             transform: translateY(-3px);
         }
         
@@ -118,7 +118,7 @@
         }
         
         .btn-accent:hover {
-            background: #ED8936;
+            background: #ff5252;
             transform: translateY(-3px);
         }
         
@@ -135,6 +135,7 @@
         /* ===== HEADER ===== */
         header {
             background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
@@ -185,10 +186,26 @@
             color: var(--secondary);
             font-weight: 500;
             transition: color 0.3s ease;
+            position: relative;
         }
         
         .nav-menu a:hover {
             color: var(--primary);
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
         }
         
         .mobile-menu-btn {
@@ -231,7 +248,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: linear-gradient(135deg, rgba(2, 62, 138, 0.8) 0%, rgba(0, 180, 216, 0.7) 100%);
             z-index: -1;
         }
         
@@ -245,12 +262,14 @@
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease;
         }
         
         .hero p {
             font-size: 1.5rem;
             margin-bottom: 2.5rem;
             font-weight: 300;
+            animation: fadeInUp 1s ease 0.2s both;
         }
         
         .hero-buttons {
@@ -258,6 +277,7 @@
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s both;
         }
         
         .scroll-indicator {
@@ -279,6 +299,17 @@
             }
             60% {
                 transform: translateY(-5px) translateX(-50%);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
         
@@ -330,6 +361,14 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transform: translateX(-20px);
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+        
+        .doctor-image.animate {
+            transform: translateX(0);
+            opacity: 1;
         }
         
         .doctor-image img {
@@ -340,6 +379,14 @@
         
         .doctor-content {
             flex: 1;
+            transform: translateX(20px);
+            opacity: 0;
+            transition: all 0.8s ease 0.2s;
+        }
+        
+        .doctor-content.animate {
+            transform: translateX(0);
+            opacity: 1;
         }
         
         .doctor-subtitle {
@@ -398,6 +445,13 @@
             text-align: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        
+        .service-card.animate {
+            transform: translateY(0);
+            opacity: 1;
         }
         
         .service-card:hover {
@@ -436,6 +490,121 @@
             color: var(--secondary);
         }
         
+        /* ===== TESTIMONIALS SECTION ===== */
+        .testimonials {
+            background: white;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+        
+        .testimonial-card.animate {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .stars {
+            color: var(--accent);
+        }
+        
+        /* ===== FAQ SECTION ===== */
+        .faq {
+            background: var(--light-gray);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+        
+        .faq-item.animate {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .faq-question {
+            background: white;
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: var(--light-gray);
+        }
+        
+        .faq-answer {
+            background: white;
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+        
+        .faq-toggle {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-toggle.active {
+            transform: rotate(180deg);
+        }
+        
         /* ===== CONTACT SECTION ===== */
         .contact {
             background: var(--white);
@@ -452,6 +621,14 @@
             padding: 2.5rem;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transform: translateX(-20px);
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+        
+        .contact-form.animate {
+            transform: translateX(0);
+            opacity: 1;
         }
         
         .form-group {
@@ -482,6 +659,14 @@
             display: flex;
             flex-direction: column;
             gap: 2rem;
+            transform: translateX(20px);
+            opacity: 0;
+            transition: all 0.8s ease 0.2s;
+        }
+        
+        .contact-info.animate {
+            transform: translateX(0);
+            opacity: 1;
         }
         
         .contact-card {
@@ -523,7 +708,8 @@
         
         /* ===== SOCIAL SECTION ===== */
         .social {
-            background: var(--light-gray);
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-dark) 100%);
+            color: white;
             text-align: center;
         }
         
@@ -535,21 +721,20 @@
         .social h2 {
             font-size: 2rem;
             margin-bottom: 1rem;
-            color: var(--secondary);
+            color: white;
         }
         
         .social p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
-            color: var(--text-light);
         }
         
         .social-link {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: var(--primary);
-            color: white;
+            background: white;
+            color: var(--secondary);
             padding: 0.8rem 1.5rem;
             border-radius: 50px;
             text-decoration: none;
@@ -558,7 +743,7 @@
         }
         
         .social-link:hover {
-            background: var(--primary-dark);
+            background: var(--light-gray);
             transform: translateY(-3px);
         }
         
@@ -578,6 +763,14 @@
             padding: 2.5rem;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+        
+        .schedule.animate, .location-info.animate {
+            transform: translateY(0);
+            opacity: 1;
         }
         
         .schedule h3, .location-info h3 {
@@ -793,11 +986,6 @@
             .footer-container {
                 grid-template-columns: 1fr;
             }
-            
-            /* Fix pour l'image d'arrière-plan sur mobile */
-            .hero-bg {
-                background-attachment: scroll;
-            }
         }
         
         @media (max-width: 576px) {
@@ -821,33 +1009,6 @@
             .doctor-contact {
                 flex-direction: column;
             }
-            
-            /* Correction pour les numéros de téléphone en bleu */
-            a[href^="tel:"] {
-                color: inherit !important;
-                text-decoration: none;
-            }
-            
-            .contact-method a {
-                color: inherit;
-                text-decoration: none;
-            }
-            
-            .footer-contact a {
-                color: inherit;
-                text-decoration: none;
-            }
-        }
-        
-        /* Correction générale pour les liens de téléphone */
-        a[href^="tel:"] {
-            color: inherit;
-            text-decoration: none;
-        }
-        
-        /* Correction pour l'image d'arrière-plan sur tous les appareils */
-        .hero-bg {
-            background-attachment: scroll;
         }
     </style>
 </head>
@@ -867,6 +1028,8 @@
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#doctora">Dra. Laura</a></li>
                     <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#testimonios">Testimonios</a></li>
+                    <li><a href="#faq">Preguntas Frecuentes</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                     <li><a href="#ubicacion">Ubicación</a></li>
                 </ul>
@@ -938,7 +1101,7 @@
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-tooth"></i>
+                        <i class="fas fa-hand-sparkles"></i>
                     </div>
                     <h3>Limpieza</h3>
                 </div>
@@ -950,13 +1113,13 @@
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-sparkles"></i>
+                        <i class="fas fa-sun"></i>
                     </div>
                     <h3>Blanqueamiento</h3>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-teeth-open"></i>
+                        <i class="fas fa-puzzle-piece"></i>
                     </div>
                     <h3>Prótesis</h3>
                 </div>
@@ -980,21 +1143,117 @@
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-child"></i>
+                        <i class="fas fa-child-reaching"></i>
                     </div>
                     <h3>Odontopediatría</h3>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-syringe"></i>
+                        <i class="fas fa-user-doctor"></i>
                     </div>
                     <h3>Cirugía</h3>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-implant"></i>
+                        <i class="fas fa-screwdriver-wrench"></i>
                     </div>
                     <h3>Implantes</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Testimonios de Pacientes</h2>
+                <p>Descubre las experiencias de quienes han confiado en nosotros</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="María González">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>María González</h4>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p>"La Dra. Laura transformó completamente mi sonrisa. Su atención es excepcional y el resultado superó mis expectativas. ¡Recomiendo Armoni Dental Studio al 100%!"</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Carlos Rodríguez">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Carlos Rodríguez</h4>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p>"Excelente atención y profesionalismo. El tratamiento de ortodoncia fue muy cómodo y los resultados son increíbles. Muy agradecido con todo el equipo."</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Ana Martínez">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Ana Martínez</h4>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p>"Llevé a mi hija para tratamiento de odontopediatría y quedé encantada. La Dra. Laura tiene una paciencia increíble con los niños. ¡Muy recomendada!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Preguntas Frecuentes</h2>
+                <p>Resolvemos tus dudas más comunes</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Cuál es el costo de una consulta inicial?</span>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>La consulta inicial tiene un costo de $XX, que incluye evaluación completa y plan de tratamiento personalizado. En algunos casos, este costo puede aplicarse al tratamiento si decides proceder.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Aceptan seguros médicos?</span>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, trabajamos con la mayoría de las principales aseguradoras. Te recomendamos contactarnos para verificar la cobertura de tu seguro específico.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Cuánto tiempo dura un tratamiento de ortodoncia?</span>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>La duración varía según cada caso, pero generalmente los tratamientos de ortodoncia duran entre 18 y 24 meses. Durante tu consulta inicial, la Dra. Laura te proporcionará un estimado más preciso.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Ofrecen planes de pago?</span>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, entendemos que los tratamientos dentales pueden representar una inversión importante. Por eso ofrecemos planes de pago flexibles adaptados a tus necesidades.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1057,21 +1316,21 @@
                                 <i class="fab fa-whatsapp"></i>
                                 <div>
                                     <strong>WhatsApp</strong>
-                                    <p><a href="tel:+18096107433">+1 809-610-7433</a></p>
+                                    <p>+1 809-610-7433</p>
                                 </div>
                             </div>
                             <div class="contact-method">
                                 <i class="fas fa-phone"></i>
                                 <div>
                                     <strong>Teléfono</strong>
-                                    <p><a href="tel:+18096349719">+1 809-634-9719</a></p>
+                                    <p>+1 809-634-9719</p>
                                 </div>
                             </div>
                             <div class="contact-method">
                                 <i class="fas fa-envelope"></i>
                                 <div>
                                     <strong>Email</strong>
-                                    <p><a href="mailto:dra.lauravasquez9@gmail.com">dra.lauravasquez9@gmail.com</a></p>
+                                    <p>dra.lauravasquez9@gmail.com</p>
                                 </div>
                             </div>
                             <div class="contact-method">
@@ -1177,6 +1436,8 @@
                         <li><a href="#inicio">Inicio</a></li>
                         <li><a href="#doctora">Dra. Laura</a></li>
                         <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#testimonios">Testimonios</a></li>
+                        <li><a href="#faq">Preguntas Frecuentes</a></li>
                         <li><a href="#contacto">Contacto</a></li>
                         <li><a href="#ubicacion">Ubicación</a></li>
                     </ul>
@@ -1188,21 +1449,21 @@
                             <i class="fab fa-whatsapp"></i>
                             <div>
                                 <strong>WhatsApp</strong>
-                                <p><a href="tel:+18096107433">+1 809-610-7433</a></p>
+                                <p>+1 809-610-7433</p>
                             </div>
                         </li>
                         <li>
                             <i class="fas fa-phone"></i>
                             <div>
                                 <strong>Teléfono</strong>
-                                <p><a href="tel:+18096349719">+1 809-634-9719</a></p>
+                                <p>+1 809-634-9719</p>
                             </div>
                         </li>
                         <li>
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <strong>Email</strong>
-                                <p><a href="mailto:dra.lauravasquez9@gmail.com">dra.lauravasquez9@gmail.com</a></p>
+                                <p>dra.lauravasquez9@gmail.com</p>
                             </div>
                         </li>
                         <li>
@@ -1360,6 +1621,51 @@
                 header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
             }
         });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const toggle = question.querySelector('.faq-toggle');
+                
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-answer').forEach(item => {
+                    if (item !== answer) {
+                        item.classList.remove('active');
+                    }
+                });
+                
+                document.querySelectorAll('.faq-toggle').forEach(item => {
+                    if (item !== toggle) {
+                        item.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current FAQ item
+                answer.classList.toggle('active');
+                toggle.classList.toggle('active');
+            });
+        });
+
+        // Scroll Animations
+        function checkScroll() {
+            const elements = document.querySelectorAll('.doctor-image, .doctor-content, .service-card, .testimonial-card, .faq-item, .contact-form, .contact-info, .schedule, .location-info');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('animate');
+                }
+            });
+        }
+        
+        // Initial check
+        checkScroll();
+        
+        // Check on scroll
+        window.addEventListener('scroll', checkScroll);
     </script>
 </body>
 </html>
